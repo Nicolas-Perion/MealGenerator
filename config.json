@@ -1,0 +1,38 @@
+{
+  "daily_targets": {
+    "protein_g": 120.0,
+    "carbs_g": 220.0,
+    "fat_g": 70.0,
+    "calories": 2200.0
+  },
+  "slot_splits": {
+    "breakfast": {
+      "protein": 0.25,
+      "carbs": 0.3,
+      "fat": 0.25,
+      "calories": 0.25
+    },
+    "lunch": {
+      "protein": 0.3,
+      "carbs": 0.3,
+      "fat": 0.3,
+      "calories": 0.3
+    },
+    "pre_snack": {
+      "protein": 0.15,
+      "carbs": 0.2,
+      "fat": 0.15,
+      "calories": 0.15
+    },
+    "dinner": {
+      "protein": 0.3,
+      "carbs": 0.2,
+      "fat": 0.3,
+      "calories": 0.3
+    }
+  },
+  "hemisphere": "north",
+  "planner_mode": "auto",
+  "llm_model": "llama3.2:3b",
+  "macro_tolerance_pct": 10.0
+}

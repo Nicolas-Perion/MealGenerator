@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Settings — MealGenerator{% endblock %}
+
+{% block content %}
+<div style="max-width:680px">
+  <h4 class="mb-4"><i class="bi bi-gear"></i> Settings</h4>
+
+  <form method="post" action="/settings">
+
+    <!-- Daily macro targets -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-semibold">Daily Macro Targets</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Protein (g/day)</label>
+            <input type="number" name="protein_g" class="form-control" step="1" min="0"
+                   value="{{ config.daily_targets.protein_g }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Carbs (g/day)</label>
+            <input type="number" name="carbs_g" class="form-control" step="1" min="0"
+                   value="{{ config.daily_targets.carbs_g }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Fat (g/day)</label>
+            <input type="number" name="fat_g" class="form-control" step="1" min="0"
+                   value="{{ config.daily_targets.fat_g }}">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Calories (kcal/day)</label>
+            <input type="number" name="calories" class="form-control" step="10" min="0"
+                   value="{{ config.daily_targets.calories }}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Per-slot calorie splits -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-semibold">
+        Per-Meal Calorie Distribution
+        <small class="text-muted fw-normal">(proportions of daily total per slot)</small>
+      </div>
+      <div class="card-body">
+        <div class="row g-3">
+          {% set slot_data = [
+            ("breakfast", "Breakfast", config.slot_splits.breakfast),
+            ("lunch", "Lunch", config.slot_splits.lunch),
+            ("pre_snack", "Pre-Training", config.slot_splits.pre_snack),
+            ("dinner", "Dinner", config.slot_splits.dinner),
+          ] %}
+          {% for slot_key, slot_label, splits in slot_data %}
+          <div class="col-12 border-bottom pb-3 mb-1">
+            <div class="fw-semibold mb-2">{{ slot_label }}</div>
+            <div class="row g-2">
+              <div class="col-sm-3">
+                <label class="form-label small">Calories %</label>
+                <div class="input-group input-group-sm">
+                  <input type="number" name="{{ slot_key }}_cal" class="form-control"
+                         step="0.01" min="0" max="1" value="{{ splits.calories }}">
+                  <span class="input-group-text">×1</span>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="form-label small">Protein %</label>
+                <input type="number" name="{{ slot_key }}_protein" class="form-control form-control-sm"
+                       step="0.01" min="0" max="1" value="{{ splits.protein }}">
+              </div>
+              <div class="col-sm-3">
+                <label class="form-label small">Carbs %</label>
+                <input type="number" name="{{ slot_key }}_carbs" class="form-control form-control-sm"
+                       step="0.01" min="0" max="1" value="{{ splits.carbs }}">
+              </div>
+              <div class="col-sm-3">
+                <label class="form-label small">Fat %</label>
+                <input type="number" name="{{ slot_key }}_fat" class="form-control form-control-sm"
+                       step="0.01" min="0" max="1" value="{{ splits.fat }}">
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <!-- General settings -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header fw-semibold">General</div>
+      <div class="card-body">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Hemisphere</label>
+            <select name="hemisphere" class="form-select">
+              <option value="north" {% if config.hemisphere == 'north' %}selected{% endif %}>Northern</option>
+              <option value="south" {% if config.hemisphere == 'south' %}selected{% endif %}>Southern</option>
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Macro tolerance (%)</label>
+            <input type="number" name="macro_tolerance_pct" class="form-control"
+                   step="1" min="0" max="50" value="{{ config.macro_tolerance_pct }}">
+          </div>
+          <div class="col-12">
+            <label class="form-label">Planner mode</label>
+            <select name="planner_mode" class="form-select" id="plannerMode">
+              <option value="auto" {% if config.planner_mode == 'auto' %}selected{% endif %}>
+                Auto (algorithmic — recommended)
+              </option>
+              <option value="llm" {% if config.planner_mode == 'llm' %}selected{% endif %}>
+                LLM (Ollama — requires local setup)
+              </option>
+            </select>
+          </div>
+          <div class="col-12" id="llmModelField" style="display:none">
+            <label class="form-label">Ollama model name</label>
+            <input type="text" name="llm_model" class="form-control"
+                   value="{{ config.llm_model }}" placeholder="llama3.2:3b">
+            <div class="form-text text-warning">
+              <i class="bi bi-exclamation-triangle"></i>
+              Requires <a href="https://ollama.com" target="_blank">Ollama</a> to be installed and running,
+              and the model to be pulled: <code>ollama pull {{ config.llm_model }}</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+      <i class="bi bi-floppy"></i> Save Settings
+    </button>
+    <a href="/" class="btn btn-outline-secondary ms-2">Cancel</a>
+
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const plannerMode = document.getElementById('plannerMode');
+  const llmModelField = document.getElementById('llmModelField');
+  function toggleLLM() {
+    llmModelField.style.display = plannerMode.value === 'llm' ? '' : 'none';
+  }
+  plannerMode.addEventListener('change', toggleLLM);
+  toggleLLM();
+</script>
+{% endblock %}

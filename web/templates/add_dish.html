@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% block title %}Add Dish — MealGenerator{% endblock %}
+
+{% block content %}
+<div style="max-width:720px">
+  <h4 class="mb-4"><i class="bi bi-plus-circle"></i> Add a New Dish</h4>
+
+  {% if errors %}
+  <div class="alert alert-danger">
+    <ul class="mb-0">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+  </div>
+  {% endif %}
+
+  <form method="post" action="/dishes/add" id="dishForm">
+
+    <!-- Basic info -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-semibold">Basic Information</div>
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label">Dish name <span class="text-danger">*</span></label>
+          <input type="text" name="name" class="form-control" required
+                 value="{{ dish.name if dish else '' }}">
+        </div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Dish type</label>
+            <select name="dish_type" class="form-select" required>
+              {% for t in ["main","dessert","side","snack","drink"] %}
+              <option value="{{ t }}" {% if dish and dish.get('dish_type') == t %}selected{% endif %}>
+                {{ t|title }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Prep time (min)</label>
+            <input type="number" name="prep_minutes" class="form-control" min="0"
+                   value="{{ dish.prep_minutes if dish else 0 }}">
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label class="form-label">Compatible meal slots <span class="text-danger">*</span></label>
+          <div class="d-flex flex-wrap gap-3">
+            {% for s, l in SLOT_LABELS.items() %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="compatible_slots"
+                     id="slot_{{ s }}" value="{{ s }}">
+              <label class="form-check-label" for="slot_{{ s }}">{{ l }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label class="form-label">Seasons (leave all unchecked = year-round)</label>
+          <div class="d-flex flex-wrap gap-3">
+            {% for s in ["spring","summer","autumn","winter"] %}
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="seasons"
+                     id="season_{{ s }}" value="{{ s }}">
+              <label class="form-check-label" for="season_{{ s }}">{{ s|title }}</label>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <label class="form-label">Tags <small class="text-muted">(comma-separated, e.g. vegan, gluten-free)</small></label>
+          <input type="text" name="tags" class="form-control"
+                 value="{{ dish.tags if dish else '' }}">
+        </div>
+      </div>
+    </div>
+
+    <!-- Batch cooking (opt-in) -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-semibold">
+        <div class="form-check mb-0">
+          <input class="form-check-input" type="checkbox" name="is_batch" id="isBatch"
+                 {% if dish and dish.get('is_batch') == 'on' %}checked{% endif %}>
+          <label class="form-check-label" for="isBatch">
+            This is a batch dish <small class="text-muted">(e.g. a pie that yields multiple servings)</small>
+          </label>
+        </div>
+      </div>
+      <div class="card-body" id="batchFields" style="display:none">
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <label class="form-label">Number of servings (batch size)</label>
+            <input type="number" name="batch_size" class="form-control" min="2"
+                   value="{{ dish.batch_size if dish else 4 }}" id="batchSize">
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label">Shelf life (days before it expires)</label>
+            <input type="number" name="shelf_life_days" class="form-control" min="1"
+                   value="{{ dish.shelf_life_days if dish else 5 }}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Ingredients -->
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header fw-semibold">
+        <i class="bi bi-basket3"></i>
+        <span id="ingredientsHeader">Ingredients (1 serving)</span>
+        <small class="text-muted fw-normal ms-2" id="ingredientsNote"></small>
+      </div>
+      <div class="card-body">
+        <div id="ingredientRows">
+          <!-- Dynamic rows injected here -->
+          <div class="ingredient-row row g-2 mb-2 align-items-end">
+            <div class="col-6">
+              <label class="form-label small mb-1">Ingredient name</label>
+              <input type="text" name="ing_name_0" class="form-control form-control-sm" placeholder="e.g. chicken breast">
+            </div>
+            <div class="col-3">
+              <label class="form-label small mb-1">Quantity</label>
+              <input type="number" name="ing_qty_0" class="form-control form-control-sm" step="0.1" min="0" placeholder="150">
+            </div>
+            <div class="col-2">
+              <label class="form-label small mb-1">Unit</label>
+              <select name="ing_unit_0" class="form-select form-select-sm">
+                <option value="g">g</option>
+                <option value="ml">ml</option>
+                <option value="units">units</option>
+              </select>
+            </div>
+            <div class="col-1">
+              <button type="button" class="btn btn-sm btn-outline-danger remove-ing" style="display:none">
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <button type="button" id="addIngredient" class="btn btn-sm btn-outline-secondary mt-1">
+          <i class="bi bi-plus"></i> Add ingredient
+        </button>
+      </div>
+    </div>
+
+    <!-- Section 2: Macros per serving -->
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header fw-semibold">
+        <i class="bi bi-bar-chart-line"></i> Macros <span class="text-muted fw-normal">(per serving)</span>
+      </div>
+      <div class="card-body">
+        <p class="text-muted small mb-3">Enter the nutritional values for <strong>one serving</strong>.</p>
+        <div class="row g-3">
+          <div class="col-sm-3">
+            <label class="form-label">Protein (g)</label>
+            <input type="number" name="protein_g" id="proteinG" class="form-control" step="0.1" min="0"
+                   value="{{ dish.protein_g if dish else '' }}" oninput="calcCalories()">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label">Carbs (g)</label>
+            <input type="number" name="carbs_g" id="carbsG" class="form-control" step="0.1" min="0"
+                   value="{{ dish.carbs_g if dish else '' }}" oninput="calcCalories()">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label">Fat (g)</label>
+            <input type="number" name="fat_g" id="fatG" class="form-control" step="0.1" min="0"
+                   value="{{ dish.fat_g if dish else '' }}" oninput="calcCalories()">
+          </div>
+          <div class="col-sm-3">
+            <label class="form-label">Calories (auto)</label>
+            <input type="text" id="calDisplay" class="form-control bg-light" readonly placeholder="—">
+          </div>
+        </div>
+        <div id="batchCalSummary" class="mt-2 text-muted small" style="display:none"></div>
+      </div>
+    </div>
+
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-success">
+        <i class="bi bi-floppy"></i> Save Dish
+      </button>
+      <a href="/dishes" class="btn btn-outline-secondary">Cancel</a>
+    </div>
+
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Toggle batch fields
+  const isBatch = document.getElementById('isBatch');
+  const batchFields = document.getElementById('batchFields');
+  const ingredientsHeader = document.getElementById('ingredientsHeader');
+  const ingredientsNote = document.getElementById('ingredientsNote');
+  const batchSize = document.getElementById('batchSize');
+  const batchCalSummary = document.getElementById('batchCalSummary');
+
+  function updateBatchUI() {
+    const active = isBatch.checked;
+    batchFields.style.display = active ? '' : 'none';
+    if (active) {
+      const n = parseInt(batchSize.value) || 1;
+      ingredientsHeader.textContent = `Ingredients (full batch — all ${n} servings)`;
+      ingredientsNote.textContent = 'Enter the total quantities you will buy and prepare.';
+    } else {
+      ingredientsHeader.textContent = 'Ingredients (1 serving)';
+      ingredientsNote.textContent = '';
+    }
+    calcCalories();
+  }
+  isBatch.addEventListener('change', updateBatchUI);
+  batchSize.addEventListener('input', updateBatchUI);
+
+  // Calorie auto-calc
+  function calcCalories() {
+    const p = parseFloat(document.getElementById('proteinG').value) || 0;
+    const c = parseFloat(document.getElementById('carbsG').value) || 0;
+    const f = parseFloat(document.getElementById('fatG').value) || 0;
+    const cal = Math.round(p * 4 + c * 4 + f * 9);
+    const display = document.getElementById('calDisplay');
+    display.value = cal > 0 ? cal + ' kcal' : '—';
+    if (isBatch.checked) {
+      const n = parseInt(batchSize.value) || 1;
+      batchCalSummary.style.display = '';
+      batchCalSummary.textContent = `Total batch: ${n} × ${cal} kcal = ${n * cal} kcal`;
+    } else {
+      batchCalSummary.style.display = 'none';
+    }
+  }
+  document.querySelectorAll('#proteinG,#carbsG,#fatG').forEach(el => el.addEventListener('input', calcCalories));
+
+  // Dynamic ingredient rows
+  let rowCount = 1;
+  document.getElementById('addIngredient').addEventListener('click', () => {
+    const container = document.getElementById('ingredientRows');
+    const row = document.createElement('div');
+    row.className = 'ingredient-row row g-2 mb-2 align-items-end';
+    row.innerHTML = `
+      <div class="col-6">
+        <input type="text" name="ing_name_${rowCount}" class="form-control form-control-sm" placeholder="e.g. olive oil">
+      </div>
+      <div class="col-3">
+        <input type="number" name="ing_qty_${rowCount}" class="form-control form-control-sm" step="0.1" min="0">
+      </div>
+      <div class="col-2">
+        <select name="ing_unit_${rowCount}" class="form-select form-select-sm">
+          <option value="g">g</option>
+          <option value="ml">ml</option>
+          <option value="units">units</option>
+        </select>
+      </div>
+      <div class="col-1">
+        <button type="button" class="btn btn-sm btn-outline-danger remove-ing">
+          <i class="bi bi-x"></i>
+        </button>
+      </div>`;
+    container.appendChild(row);
+    rowCount++;
+    // Show remove buttons when >1 rows
+    document.querySelectorAll('.remove-ing').forEach(btn => btn.style.display = '');
+  });
+
+  document.getElementById('ingredientRows').addEventListener('click', e => {
+    if (e.target.closest('.remove-ing')) {
+      e.target.closest('.ingredient-row').remove();
+      if (document.querySelectorAll('.ingredient-row').length === 1) {
+        document.querySelector('.remove-ing').style.display = 'none';
+      }
+    }
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Dishes — MealGenerator{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+  <h4 class="mb-0"><i class="bi bi-journal-richtext"></i> Dish Library</h4>
+  <a href="/dishes/add" class="btn btn-sm btn-success">
+    <i class="bi bi-plus-lg"></i> Add Dish
+  </a>
+</div>
+
+<!-- Filters -->
+<form method="get" class="row g-2 mb-4">
+  <div class="col-auto">
+    <select name="dish_type" class="form-select form-select-sm">
+      <option value="">All types</option>
+      {% for t in ["main","dessert","side","snack","drink"] %}
+      <option value="{{ t }}" {% if filter_type == t %}selected{% endif %}>{{ t|title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <select name="slot" class="form-select form-select-sm">
+      <option value="">All slots</option>
+      {% for s, l in SLOT_LABELS.items() %}
+      <option value="{{ s }}" {% if filter_slot == s %}selected{% endif %}>{{ l }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <select name="season" class="form-select form-select-sm">
+      <option value="">All seasons</option>
+      {% for s in ["spring","summer","autumn","winter"] %}
+      <option value="{{ s }}" {% if filter_season == s %}selected{% endif %}>{{ s|title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% if all_tags %}
+  <div class="col-auto">
+    <select name="tag" class="form-select form-select-sm">
+      <option value="">All tags</option>
+      {% for t in all_tags %}
+      <option value="{{ t }}" {% if filter_tag == t %}selected{% endif %}>{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {% endif %}
+  <div class="col-auto">
+    <button type="submit" class="btn btn-sm btn-outline-secondary">Filter</button>
+    <a href="/dishes" class="btn btn-sm btn-outline-secondary">Reset</a>
+  </div>
+</form>
+
+{% if dishes %}
+<div class="row g-3">
+  {% for dish in dishes %}
+  <div class="col-12 col-sm-6 col-xl-4">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body pb-1">
+        <div class="d-flex justify-content-between align-items-start">
+          <h6 class="card-title mb-1">{{ dish.name }}</h6>
+          <span class="badge bg-secondary ms-1 text-nowrap">{{ dish.dish_type }}</span>
+        </div>
+        <div class="small text-muted mb-2">
+          {{ dish.compatible_slots | join(", ") }}
+          {% if dish.seasons and dish.seasons|length < 4 %}
+            · {{ dish.seasons | join(", ") }}
+          {% endif %}
+          {% if dish.get('batch_size',1) > 1 %}
+            · <span class="text-warning fw-semibold">Batch ×{{ dish.batch_size }} ({{ dish.shelf_life_days }}d)</span>
+          {% endif %}
+        </div>
+        <div class="macro-pills small">
+          <span class="badge bg-danger bg-opacity-75">P {{ dish.macros.protein_g }}g</span>
+          <span class="badge bg-warning text-dark bg-opacity-75">C {{ dish.macros.carbs_g }}g</span>
+          <span class="badge bg-success bg-opacity-75">F {{ dish.macros.fat_g }}g</span>
+          <span class="badge bg-dark bg-opacity-75">{{ dish.macros.calories }} kcal</span>
+        </div>
+        {% if dish.tags %}
+        <div class="mt-1 small">
+          {% for t in dish.tags %}
+          <a href="/dishes?tag={{ t }}" class="badge bg-light text-dark border me-1 text-decoration-none">{{ t }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center py-1">
+        <small class="text-muted"><i class="bi bi-clock"></i> {{ dish.prep_minutes }} min</small>
+        <form method="post" action="/dishes/{{ dish.id }}/delete"
+              onsubmit="return confirm('Delete {{ dish.name }}?')">
+          <button type="submit" class="btn btn-sm btn-outline-danger py-0 px-2">
+            <i class="bi bi-trash3"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="text-muted">No dishes match the current filter. <a href="/dishes/add">Add one?</a></p>
+{% endif %}
+{% endblock %}

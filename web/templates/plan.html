@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}7-Day Plan — MealGenerator{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+  <h4 class="mb-0"><i class="bi bi-calendar-week"></i> 7-Day Meal Plan
+    <small class="text-muted fs-6">{{ plan.generated_at[:10] }}</small>
+  </h4>
+  <div class="d-flex gap-2">
+    <a href="/grocery/{{ plan.id }}" class="btn btn-sm btn-outline-secondary">
+      <i class="bi bi-cart3"></i> Grocery List
+    </a>
+    <a href="/plan/{{ plan.id }}/export" class="btn btn-sm btn-outline-danger">
+      <i class="bi bi-file-earmark-pdf"></i> Export PDF
+    </a>
+    <form method="post" action="/plan/generate" class="d-inline">
+      <button type="submit" class="btn btn-sm btn-success">
+        <i class="bi bi-arrow-clockwise"></i> New Plan
+      </button>
+    </form>
+  </div>
+</div>
+
+{% if plan.warnings %}
+<div class="alert alert-warning py-2 small">
+  <i class="bi bi-exclamation-triangle-fill"></i>
+  {% for w in plan.warnings %}<div>{{ w }}</div>{% endfor %}
+</div>
+{% endif %}
+
+<div class="table-responsive">
+  <table class="table table-bordered align-middle text-center plan-table">
+    <thead class="table-dark">
+      <tr>
+        <th style="min-width:110px">Slot</th>
+        {% for day in plan.days %}
+        <th style="min-width:140px">
+          <div>{{ ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][loop.index0] }}</div>
+          <small class="fw-normal text-white-50">{{ day.date[5:] }}</small>
+        </th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for slot in SLOTS %}
+      <tr>
+        <td class="fw-semibold bg-light text-start ps-2">{{ SLOT_LABELS[slot] }}</td>
+        {% for day in plan.days %}
+        {% set dishes = day.meals.get(slot, []) %}
+        {% set sm = slot_macros(dishes) %}
+        <td class="p-1">
+          {% for dish in dishes %}
+            <div class="meal-dish-name{% if dish.get('batch_size',1) > 1 %} batch-dish{% endif %}"
+                 data-bs-toggle="tooltip"
+                 title="P:{{ dish.macros.protein_g }}g C:{{ dish.macros.carbs_g }}g F:{{ dish.macros.fat_g }}g | {{ dish.macros.calories }} kcal">
+              {{ dish.name }}
+              {%- if dish.get('batch_size',1) > 1 %}
+                <span class="badge bg-warning text-dark ms-1 small" title="Batch dish">B</span>
+              {%- endif %}
+            </div>
+          {% endfor %}
+          <div class="macro-badge mt-1">
+            <span class="badge bg-secondary">{{ sm.calories }} kcal</span>
+          </div>
+          <div class="macro-detail small text-muted">
+            P:{{ sm.protein_g }}g C:{{ sm.carbs_g }}g F:{{ sm.fat_g }}g
+          </div>
+        </td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+
+      <!-- Daily totals row -->
+      <tr class="table-secondary fw-semibold">
+        <td class="text-start ps-2">Daily totals</td>
+        {% for day in plan.days %}
+        {% set dm = day_macros(day) %}
+        <td class="small">
+          <div>{{ dm.calories }} kcal</div>
+          <div class="text-muted fw-normal">P:{{ dm.protein_g }}g C:{{ dm.carbs_g }}g F:{{ dm.fat_g }}g</div>
+        </td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  // Bootstrap tooltips
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => {
+    new bootstrap.Tooltip(el);
+  });
+</script>
+{% endblock %}
