@@ -18,8 +18,6 @@ _DEFAULT_CONFIG = {
         "dinner":     {"protein": 0.30, "carbs": 0.20, "fat": 0.30, "calories": 0.30},
     },
     "hemisphere": "north",
-    "planner_mode": "auto",
-    "llm_model": "llama3.2:3b",
     "macro_tolerance_pct": 15,
 }
 

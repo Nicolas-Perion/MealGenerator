@@ -103,8 +103,6 @@ async def settings_save(
     fat_g: float = Form(...),
     calories: float = Form(...),
     hemisphere: str = Form(...),
-    planner_mode: str = Form("auto"),
-    llm_model: str = Form("llama3.2:3b"),
     macro_tolerance_pct: float = Form(15),
     breakfast_cal: float = Form(0.25),
     lunch_cal: float = Form(0.30),
@@ -135,8 +133,6 @@ async def settings_save(
             "dinner":     {"protein": dinner_protein, "carbs": dinner_carbs, "fat": dinner_fat, "calories": dinner_cal},
         },
         "hemisphere": hemisphere,
-        "planner_mode": planner_mode,
-        "llm_model": llm_model,
         "macro_tolerance_pct": macro_tolerance_pct,
     }
     save_config(config)
@@ -148,14 +144,7 @@ async def settings_save(
 @app.post("/plan/generate")
 async def plan_generate(request: Request, mode: str = Query(default="auto")):
     config = load_config()
-    if mode == "llm" or config.get("planner_mode") == "llm":
-        try:
-            from src.llm_planner import generate_plan as llm_generate
-            plan = llm_generate(config)
-        except Exception:
-            plan = algo_generate(config)
-    else:
-        plan = algo_generate(config)
+    plan = algo_generate(config)
     plan_id = save_plan(plan)
     return RedirectResponse(f"/plan/{plan_id}", status_code=303)
 

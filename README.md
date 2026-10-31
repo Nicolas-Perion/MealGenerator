@@ -13,7 +13,6 @@ A Python web application that generates varied 7-day meal plans with a grocery l
 - **Grocery list**: exact ingredient aggregation by code — no hallucinations
 - **Plan history**: browse and re-export any past plan
 - **PDF export**: one-click download of the plan + grocery list
-- **Optional LLM mode**: Ollama-powered planning (disabled by default)
 
 ## Setup
 
@@ -54,7 +53,7 @@ Then open **http://localhost:8001** in your browser.
 | History | `/history` | All past plans |
 | Dishes | `/dishes` | Browse + filter the dish library |
 | Add dish | `/dishes/add` | Form to add a new dish to the database |
-| Settings | `/settings` | Macro targets, slot splits, hemisphere, LLM toggle |
+| Settings | `/settings` | Macro targets, slot splits, hemisphere |
 | PDF export | Plan page → "Export PDF" | Download plan + grocery list as PDF |
 
 ## Adding Dishes
@@ -68,15 +67,6 @@ Go to **Dishes → Add Dish**. Fill in:
 
 For batch dishes (e.g. a pie, a cake), tick "This is a batch dish" and enter the batch size and shelf life. The planner will spread servings across the week automatically.
 
-## Optional: LLM Mode
-
-LLM mode uses [Ollama](https://ollama.com) to select dishes. The LLM picks from your existing database — it never invents meals. Useful if you want more "reasoning" behind selections.
-
-1. Install Ollama: https://ollama.com
-2. Pull a model: `ollama pull llama3.2:3b` (~2 GB download)
-3. In Settings, change **Planner mode** to "LLM" and set the model name
-4. The app falls back to algorithmic planning if Ollama is offline
-
 ## Project Structure
 
 ```
@@ -86,7 +76,6 @@ MealGenerator/
 │   ├── database.py       # CRUD layer
 │   ├── seasonality.py    # Season helpers
 │   ├── planner.py        # Algorithmic planner
-│   ├── llm_planner.py    # Optional LLM planner
 │   └── grocery.py        # Grocery aggregation
 ├── web/
 │   ├── app.py            # FastAPI routes

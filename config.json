@@ -32,7 +32,5 @@
     }
   },
   "hemisphere": "north",
-  "planner_mode": "auto",
-  "llm_model": "llama3.2:3b",
   "macro_tolerance_pct": 10.0
 }

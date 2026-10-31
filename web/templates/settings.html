@@ -101,27 +101,6 @@
             <input type="number" name="macro_tolerance_pct" class="form-control"
                    step="1" min="0" max="50" value="{{ config.macro_tolerance_pct }}">
           </div>
-          <div class="col-12">
-            <label class="form-label">Planner mode</label>
-            <select name="planner_mode" class="form-select" id="plannerMode">
-              <option value="auto" {% if config.planner_mode == 'auto' %}selected{% endif %}>
-                Auto (algorithmic — recommended)
-              </option>
-              <option value="llm" {% if config.planner_mode == 'llm' %}selected{% endif %}>
-                LLM (Ollama — requires local setup)
-              </option>
-            </select>
-          </div>
-          <div class="col-12" id="llmModelField" style="display:none">
-            <label class="form-label">Ollama model name</label>
-            <input type="text" name="llm_model" class="form-control"
-                   value="{{ config.llm_model }}" placeholder="llama3.2:3b">
-            <div class="form-text text-warning">
-              <i class="bi bi-exclamation-triangle"></i>
-              Requires <a href="https://ollama.com" target="_blank">Ollama</a> to be installed and running,
-              and the model to be pulled: <code>ollama pull {{ config.llm_model }}</code>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -135,14 +114,4 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-<script>
-  const plannerMode = document.getElementById('plannerMode');
-  const llmModelField = document.getElementById('llmModelField');
-  function toggleLLM() {
-    llmModelField.style.display = plannerMode.value === 'llm' ? '' : 'none';
-  }
-  plannerMode.addEventListener('change', toggleLLM);
-  toggleLLM();
-</script>
-{% endblock %}
+
