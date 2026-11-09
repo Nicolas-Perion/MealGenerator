@@ -8,20 +8,20 @@
             ],
             "ingredients": [
                 {
-                    "name": "rolled oats",
-                    "quantity_g": 80
+                    "ingredient_id": 1,
+                    "quantity": 80
                 },
                 {
-                    "name": "banana",
-                    "quantity_units": 1
+                    "ingredient_id": 2,
+                    "quantity": 1
                 },
                 {
-                    "name": "peanut butter",
-                    "quantity_g": 30
+                    "ingredient_id": 3,
+                    "quantity": 30
                 },
                 {
-                    "name": "milk",
-                    "quantity_ml": 200
+                    "ingredient_id": 4,
+                    "quantity": 200
                 }
             ],
             "macros": {
@@ -50,16 +50,16 @@
             ],
             "ingredients": [
                 {
-                    "name": "eggs",
-                    "quantity_units": 3
+                    "ingredient_id": 5,
+                    "quantity": 3
                 },
                 {
-                    "name": "whole grain bread",
-                    "quantity_g": 70
+                    "ingredient_id": 6,
+                    "quantity": 70
                 },
                 {
-                    "name": "butter",
-                    "quantity_g": 10
+                    "ingredient_id": 7,
+                    "quantity": 10
                 }
             ],
             "macros": {
@@ -91,20 +91,20 @@
             ],
             "ingredients": [
                 {
-                    "name": "bagel",
-                    "quantity_units": 1
+                    "ingredient_id": 8,
+                    "quantity": 1
                 },
                 {
-                    "name": "smoked salmon",
-                    "quantity_g": 80
+                    "ingredient_id": 9,
+                    "quantity": 80
                 },
                 {
-                    "name": "cream cheese",
-                    "quantity_g": 40
+                    "ingredient_id": 10,
+                    "quantity": 40
                 },
                 {
-                    "name": "capers",
-                    "quantity_g": 10
+                    "ingredient_id": 11,
+                    "quantity": 10
                 }
             ],
             "macros": {
@@ -135,16 +135,16 @@
             ],
             "ingredients": [
                 {
-                    "name": "greek yogurt",
-                    "quantity_g": 200
+                    "ingredient_id": 12,
+                    "quantity": 200
                 },
                 {
-                    "name": "mixed berries",
-                    "quantity_g": 100
+                    "ingredient_id": 13,
+                    "quantity": 100
                 },
                 {
-                    "name": "granola",
-                    "quantity_g": 50
+                    "ingredient_id": 14,
+                    "quantity": 50
                 }
             ],
             "macros": {
@@ -175,24 +175,24 @@
             ],
             "ingredients": [
                 {
-                    "name": "chicken breast",
-                    "quantity_g": 150
+                    "ingredient_id": 15,
+                    "quantity": 150
                 },
                 {
-                    "name": "quinoa (dry)",
-                    "quantity_g": 80
+                    "ingredient_id": 16,
+                    "quantity": 80
                 },
                 {
-                    "name": "cherry tomatoes",
-                    "quantity_g": 80
+                    "ingredient_id": 17,
+                    "quantity": 80
                 },
                 {
-                    "name": "cucumber",
-                    "quantity_g": 60
+                    "ingredient_id": 18,
+                    "quantity": 60
                 },
                 {
-                    "name": "olive oil",
-                    "quantity_ml": 10
+                    "ingredient_id": 19,
+                    "quantity": 10
                 }
             ],
             "macros": {
@@ -224,28 +224,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "canned tuna",
-                    "quantity_g": 160
+                    "ingredient_id": 20,
+                    "quantity": 160
                 },
                 {
-                    "name": "green beans",
-                    "quantity_g": 100
+                    "ingredient_id": 21,
+                    "quantity": 100
                 },
                 {
-                    "name": "eggs",
-                    "quantity_units": 2
+                    "ingredient_id": 5,
+                    "quantity": 2
                 },
                 {
-                    "name": "olives",
-                    "quantity_g": 30
+                    "ingredient_id": 22,
+                    "quantity": 30
                 },
                 {
-                    "name": "olive oil",
-                    "quantity_ml": 15
+                    "ingredient_id": 19,
+                    "quantity": 15
                 },
                 {
-                    "name": "cherry tomatoes",
-                    "quantity_g": 80
+                    "ingredient_id": 17,
+                    "quantity": 80
                 }
             ],
             "macros": {
@@ -275,28 +275,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "red lentils (dry)",
-                    "quantity_g": 100
+                    "ingredient_id": 23,
+                    "quantity": 100
                 },
                 {
-                    "name": "carrots",
-                    "quantity_g": 80
+                    "ingredient_id": 24,
+                    "quantity": 80
                 },
                 {
-                    "name": "onion",
-                    "quantity_g": 60
+                    "ingredient_id": 25,
+                    "quantity": 60
                 },
                 {
-                    "name": "crusty bread",
-                    "quantity_g": 80
+                    "ingredient_id": 26,
+                    "quantity": 80
                 },
                 {
-                    "name": "olive oil",
-                    "quantity_ml": 10
+                    "ingredient_id": 19,
+                    "quantity": 10
                 },
                 {
-                    "name": "vegetable stock",
-                    "quantity_ml": 400
+                    "ingredient_id": 27,
+                    "quantity": 400
                 }
             ],
             "macros": {
@@ -326,28 +326,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "tortilla wrap",
-                    "quantity_units": 1
+                    "ingredient_id": 28,
+                    "quantity": 1
                 },
                 {
-                    "name": "turkey breast slices",
-                    "quantity_g": 120
+                    "ingredient_id": 29,
+                    "quantity": 120
                 },
                 {
-                    "name": "avocado",
-                    "quantity_units": 0.5
+                    "ingredient_id": 30,
+                    "quantity": 0.5
                 },
                 {
-                    "name": "lettuce",
-                    "quantity_g": 30
+                    "ingredient_id": 31,
+                    "quantity": 30
                 },
                 {
-                    "name": "tomato",
-                    "quantity_g": 60
+                    "ingredient_id": 32,
+                    "quantity": 60
                 },
                 {
-                    "name": "mustard",
-                    "quantity_g": 10
+                    "ingredient_id": 33,
+                    "quantity": 10
                 }
             ],
             "macros": {
@@ -378,24 +378,24 @@
             ],
             "ingredients": [
                 {
-                    "name": "salmon fillet",
-                    "quantity_g": 180
+                    "ingredient_id": 34,
+                    "quantity": 180
                 },
                 {
-                    "name": "sweet potato",
-                    "quantity_g": 200
+                    "ingredient_id": 35,
+                    "quantity": 200
                 },
                 {
-                    "name": "broccoli florets",
-                    "quantity_g": 150
+                    "ingredient_id": 36,
+                    "quantity": 150
                 },
                 {
-                    "name": "olive oil",
-                    "quantity_ml": 15
+                    "ingredient_id": 19,
+                    "quantity": 15
                 },
                 {
-                    "name": "lemon",
-                    "quantity_units": 0.5
+                    "ingredient_id": 37,
+                    "quantity": 0.5
                 }
             ],
             "macros": {
@@ -427,28 +427,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "beef sirloin strips",
-                    "quantity_g": 160
+                    "ingredient_id": 38,
+                    "quantity": 160
                 },
                 {
-                    "name": "brown rice (dry)",
-                    "quantity_g": 90
+                    "ingredient_id": 39,
+                    "quantity": 90
                 },
                 {
-                    "name": "bell peppers",
-                    "quantity_g": 100
+                    "ingredient_id": 40,
+                    "quantity": 100
                 },
                 {
-                    "name": "broccoli florets",
-                    "quantity_g": 80
+                    "ingredient_id": 36,
+                    "quantity": 80
                 },
                 {
-                    "name": "soy sauce",
-                    "quantity_ml": 20
+                    "ingredient_id": 41,
+                    "quantity": 20
                 },
                 {
-                    "name": "sesame oil",
-                    "quantity_ml": 8
+                    "ingredient_id": 42,
+                    "quantity": 8
                 }
             ],
             "macros": {
@@ -479,28 +479,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "chicken breast",
-                    "quantity_g": 180
+                    "ingredient_id": 15,
+                    "quantity": 180
                 },
                 {
-                    "name": "basmati rice (dry)",
-                    "quantity_g": 90
+                    "ingredient_id": 43,
+                    "quantity": 90
                 },
                 {
-                    "name": "canned tomatoes",
-                    "quantity_g": 200
+                    "ingredient_id": 44,
+                    "quantity": 200
                 },
                 {
-                    "name": "coconut milk",
-                    "quantity_ml": 100
+                    "ingredient_id": 45,
+                    "quantity": 100
                 },
                 {
-                    "name": "tikka masala paste",
-                    "quantity_g": 40
+                    "ingredient_id": 46,
+                    "quantity": 40
                 },
                 {
-                    "name": "onion",
-                    "quantity_g": 60
+                    "ingredient_id": 25,
+                    "quantity": 60
                 }
             ],
             "macros": {
@@ -529,28 +529,28 @@
             ],
             "ingredients": [
                 {
-                    "name": "sea bass fillet",
-                    "quantity_g": 200
+                    "ingredient_id": 47,
+                    "quantity": 200
                 },
                 {
-                    "name": "courgette",
-                    "quantity_g": 100
+                    "ingredient_id": 48,
+                    "quantity": 100
                 },
                 {
-                    "name": "aubergine",
-                    "quantity_g": 100
+                    "ingredient_id": 49,
+                    "quantity": 100
                 },
                 {
-                    "name": "bell peppers",
-                    "quantity_g": 80
+                    "ingredient_id": 40,
+                    "quantity": 80
                 },
                 {
-                    "name": "canned tomatoes",
-                    "quantity_g": 150
+                    "ingredient_id": 44,
+                    "quantity": 150
                 },
                 {
-                    "name": "olive oil",
-                    "quantity_ml": 15
+                    "ingredient_id": 19,
+                    "quantity": 15
                 }
             ],
             "macros": {
@@ -579,12 +579,12 @@
             ],
             "ingredients": [
                 {
-                    "name": "rice cakes",
-                    "quantity_units": 3
+                    "ingredient_id": 50,
+                    "quantity": 3
                 },
                 {
-                    "name": "almond butter",
-                    "quantity_g": 30
+                    "ingredient_id": 51,
+                    "quantity": 30
                 }
             ],
             "macros": {
@@ -617,12 +617,12 @@
             ],
             "ingredients": [
                 {
-                    "name": "cottage cheese",
-                    "quantity_g": 200
+                    "ingredient_id": 52,
+                    "quantity": 200
                 },
                 {
-                    "name": "walnuts",
-                    "quantity_g": 30
+                    "ingredient_id": 53,
+                    "quantity": 30
                 }
             ],
             "macros": {
@@ -655,16 +655,16 @@
             ],
             "ingredients": [
                 {
-                    "name": "whey protein powder",
-                    "quantity_g": 30
+                    "ingredient_id": 54,
+                    "quantity": 30
                 },
                 {
-                    "name": "banana",
-                    "quantity_units": 1
+                    "ingredient_id": 2,
+                    "quantity": 1
                 },
                 {
-                    "name": "milk",
-                    "quantity_ml": 250
+                    "ingredient_id": 4,
+                    "quantity": 250
                 }
             ],
             "macros": {
@@ -695,12 +695,12 @@
             ],
             "ingredients": [
                 {
-                    "name": "edamame (shelled)",
-                    "quantity_g": 100
+                    "ingredient_id": 55,
+                    "quantity": 100
                 },
                 {
-                    "name": "eggs",
-                    "quantity_units": 2
+                    "ingredient_id": 5,
+                    "quantity": 2
                 }
             ],
             "macros": {
@@ -729,32 +729,30 @@
                 "lunch",
                 "dinner"
             ],
-            "batch_size": 4,
-            "shelf_life_days": 5,
             "ingredients": [
                 {
-                    "name": "plain flour",
-                    "quantity_g": 300
+                    "ingredient_id": 56,
+                    "quantity": 300
                 },
                 {
-                    "name": "butter",
-                    "quantity_g": 150
+                    "ingredient_id": 7,
+                    "quantity": 150
                 },
                 {
-                    "name": "apples",
-                    "quantity_units": 4
+                    "ingredient_id": 57,
+                    "quantity": 4
                 },
                 {
-                    "name": "sugar",
-                    "quantity_g": 100
+                    "ingredient_id": 58,
+                    "quantity": 100
                 },
                 {
-                    "name": "egg",
-                    "quantity_units": 1
+                    "ingredient_id": 5,
+                    "quantity": 1
                 },
                 {
-                    "name": "cinnamon",
-                    "quantity_g": 5
+                    "ingredient_id": 59,
+                    "quantity": 5
                 }
             ],
             "macros": {
@@ -772,6 +770,8 @@
                 "batch"
             ],
             "prep_minutes": 60,
+            "batch_size": 4,
+            "shelf_life_days": 5,
             "created_at": "2026-09-16T16:21:17.756550"
         },
         "18": {
@@ -784,20 +784,20 @@
             ],
             "ingredients": [
                 {
-                    "name": "strawberries",
-                    "quantity_g": 80
+                    "ingredient_id": 60,
+                    "quantity": 80
                 },
                 {
-                    "name": "melon",
-                    "quantity_g": 80
+                    "ingredient_id": 61,
+                    "quantity": 80
                 },
                 {
-                    "name": "kiwi",
-                    "quantity_units": 1
+                    "ingredient_id": 62,
+                    "quantity": 1
                 },
                 {
-                    "name": "mint leaves",
-                    "quantity_g": 3
+                    "ingredient_id": 63,
+                    "quantity": 3
                 }
             ],
             "macros": {
@@ -829,8 +829,8 @@
             ],
             "ingredients": [
                 {
-                    "name": "dark chocolate (70%+)",
-                    "quantity_g": 30
+                    "ingredient_id": 64,
+                    "quantity": 30
                 }
             ],
             "macros": {
@@ -864,12 +864,12 @@
             ],
             "ingredients": [
                 {
-                    "name": "plain yogurt",
-                    "quantity_g": 150
+                    "ingredient_id": 65,
+                    "quantity": 150
                 },
                 {
-                    "name": "honey",
-                    "quantity_g": 20
+                    "ingredient_id": 66,
+                    "quantity": 20
                 }
             ],
             "macros": {
@@ -892,195 +892,6 @@
             "batch_size": 1,
             "shelf_life_days": 1,
             "created_at": "2026-09-16T16:21:17.877314"
-        }
-    },
-    "plans": {
-        "1": {
-            "generated_at": "2026-09-16T16:24:46.490313",
-            "days": [
-                {
-                    "day": 1,
-                    "date": "2026-09-16",
-                    "meals": {
-                        "breakfast": [
-                            2,
-                            20
-                        ],
-                        "lunch": [
-                            8,
-                            20
-                        ],
-                        "pre_snack": [
-                            14
-                        ],
-                        "dinner": [
-                            10,
-                            20
-                        ]
-                    }
-                },
-                {
-                    "day": 2,
-                    "date": "2026-09-17",
-                    "meals": {
-                        "breakfast": [
-                            1,
-                            20
-                        ],
-                        "lunch": [
-                            7,
-                            20
-                        ],
-                        "pre_snack": [
-                            13
-                        ],
-                        "dinner": [
-                            5,
-                            20
-                        ]
-                    }
-                },
-                {
-                    "day": 3,
-                    "date": "2026-09-18",
-                    "meals": {
-                        "breakfast": [
-                            3,
-                            18
-                        ],
-                        "lunch": [
-                            8,
-                            17
-                        ],
-                        "pre_snack": [
-                            19
-                        ],
-                        "dinner": [
-                            9,
-                            19
-                        ]
-                    }
-                },
-                {
-                    "day": 4,
-                    "date": "2026-09-19",
-                    "meals": {
-                        "breakfast": [
-                            3,
-                            18
-                        ],
-                        "lunch": [
-                            5,
-                            20
-                        ],
-                        "pre_snack": [
-                            13
-                        ],
-                        "dinner": [
-                            11,
-                            18
-                        ]
-                    }
-                },
-                {
-                    "day": 5,
-                    "date": "2026-09-20",
-                    "meals": {
-                        "breakfast": [
-                            2,
-                            20
-                        ],
-                        "lunch": [
-                            8,
-                            20
-                        ],
-                        "pre_snack": [
-                            19
-                        ],
-                        "dinner": [
-                            5,
-                            19
-                        ]
-                    }
-                },
-                {
-                    "day": 6,
-                    "date": "2026-09-21",
-                    "meals": {
-                        "breakfast": [
-                            2,
-                            20
-                        ],
-                        "lunch": [
-                            5,
-                            20
-                        ],
-                        "pre_snack": [
-                            13
-                        ],
-                        "dinner": [
-                            11,
-                            17
-                        ]
-                    }
-                },
-                {
-                    "day": 7,
-                    "date": "2026-09-22",
-                    "meals": {
-                        "breakfast": [
-                            1,
-                            20
-                        ],
-                        "lunch": [
-                            7,
-                            17
-                        ],
-                        "pre_snack": [
-                            13
-                        ],
-                        "dinner": [
-                            11,
-                            17
-                        ]
-                    }
-                }
-            ],
-            "daily_targets": {
-                "protein_g": 160,
-                "carbs_g": 220,
-                "fat_g": 70,
-                "calories": 2200
-            },
-            "slot_targets": {
-                "breakfast": {
-                    "protein_g": 40,
-                    "carbs_g": 66,
-                    "fat_g": 17.5,
-                    "calories": 550
-                },
-                "lunch": {
-                    "protein_g": 48,
-                    "carbs_g": 66,
-                    "fat_g": 21,
-                    "calories": 660
-                },
-                "pre_snack": {
-                    "protein_g": 24,
-                    "carbs_g": 44,
-                    "fat_g": 10.5,
-                    "calories": 330
-                },
-                "dinner": {
-                    "protein_g": 48,
-                    "carbs_g": 44,
-                    "fat_g": 21,
-                    "calories": 660
-                }
-            },
-            "hemisphere": "north",
-            "planner_mode": "auto",
-            "warnings": []
         }
     }
 }

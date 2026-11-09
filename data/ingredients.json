@@ -1,0 +1,796 @@
+{
+  "ingredients": {
+    "1": {
+      "name": "rolled oats",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.13,
+        "carbs_g": 0.66,
+        "fat_g": 0.07,
+        "calories": 3.89
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386158"
+    },
+    "2": {
+      "name": "banana",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 1.3,
+        "carbs_g": 27,
+        "fat_g": 0.4,
+        "calories": 105
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386184"
+    },
+    "3": {
+      "name": "peanut butter",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.25,
+        "carbs_g": 0.2,
+        "fat_g": 0.5,
+        "calories": 5.88
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386197"
+    },
+    "4": {
+      "name": "milk",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0.034,
+        "carbs_g": 0.05,
+        "fat_g": 0.033,
+        "calories": 0.61
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386203"
+    },
+    "5": {
+      "name": "egg",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 6.3,
+        "carbs_g": 0.6,
+        "fat_g": 5.3,
+        "calories": 70
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386208"
+    },
+    "6": {
+      "name": "whole grain bread",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.09,
+        "carbs_g": 0.45,
+        "fat_g": 0.01,
+        "calories": 2.52
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386214"
+    },
+    "7": {
+      "name": "butter",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.001,
+        "carbs_g": 0,
+        "fat_g": 0.811,
+        "calories": 7.17
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386219"
+    },
+    "8": {
+      "name": "bagel",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 9,
+        "carbs_g": 50,
+        "fat_g": 1.5,
+        "calories": 264
+      },
+      "category": "vegetarian",
+      "created_at": "2026-10-31T12:07:38.386225"
+    },
+    "9": {
+      "name": "smoked salmon",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.183,
+        "carbs_g": 0,
+        "fat_g": 0.133,
+        "calories": 1.86
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386230"
+    },
+    "10": {
+      "name": "cream cheese",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.034,
+        "carbs_g": 0.052,
+        "fat_g": 0.33,
+        "calories": 3.4
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386235"
+    },
+    "11": {
+      "name": "capers",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.024,
+        "carbs_g": 0.041,
+        "fat_g": 0.009,
+        "calories": 0.23
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386246"
+    },
+    "12": {
+      "name": "greek yogurt",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.1,
+        "carbs_g": 0.036,
+        "fat_g": 0,
+        "calories": 0.59
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386255"
+    },
+    "13": {
+      "name": "mixed berries",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.007,
+        "carbs_g": 0.077,
+        "fat_g": 0.003,
+        "calories": 0.33
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386285"
+    },
+    "14": {
+      "name": "granola",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.1,
+        "carbs_g": 0.65,
+        "fat_g": 0.15,
+        "calories": 4.5
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386291"
+    },
+    "15": {
+      "name": "chicken breast",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.31,
+        "carbs_g": 0,
+        "fat_g": 0.036,
+        "calories": 1.65
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386302"
+    },
+    "16": {
+      "name": "quinoa",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.141,
+        "carbs_g": 0.642,
+        "fat_g": 0.06,
+        "calories": 3.68
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386309"
+    },
+    "17": {
+      "name": "cherry tomatoes",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.009,
+        "carbs_g": 0.039,
+        "fat_g": 0.001,
+        "calories": 0.18
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386314"
+    },
+    "18": {
+      "name": "cucumber",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.006,
+        "carbs_g": 0.037,
+        "fat_g": 0.002,
+        "calories": 0.16
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386319"
+    },
+    "19": {
+      "name": "olive oil",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0,
+        "carbs_g": 0,
+        "fat_g": 1,
+        "calories": 8.84
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386324"
+    },
+    "20": {
+      "name": "canned tuna",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.258,
+        "carbs_g": 0,
+        "fat_g": 0.012,
+        "calories": 1.16
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386330"
+    },
+    "21": {
+      "name": "green beans",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.018,
+        "carbs_g": 0.071,
+        "fat_g": 0.002,
+        "calories": 0.31
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386336"
+    },
+    "22": {
+      "name": "olives",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.008,
+        "carbs_g": 0.038,
+        "fat_g": 0.109,
+        "calories": 1.15
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386341"
+    },
+    "23": {
+      "name": "red lentils",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.246,
+        "carbs_g": 0.601,
+        "fat_g": 0.011,
+        "calories": 3.53
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386346"
+    },
+    "24": {
+      "name": "carrot",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.008,
+        "carbs_g": 0.096,
+        "fat_g": 0.002,
+        "calories": 0.41
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386351"
+    },
+    "25": {
+      "name": "onion",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.011,
+        "carbs_g": 0.093,
+        "fat_g": 0.001,
+        "calories": 0.4
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386356"
+    },
+    "26": {
+      "name": "bread",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.09,
+        "carbs_g": 0.45,
+        "fat_g": 0.01,
+        "calories": 2.52
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386363"
+    },
+    "27": {
+      "name": "vegetable stock",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0.001,
+        "carbs_g": 0.003,
+        "fat_g": 0,
+        "calories": 0.016
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386372"
+    },
+    "28": {
+      "name": "tortilla wrap",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 0.08,
+        "carbs_g": 0.48,
+        "fat_g": 0.02,
+        "calories": 2.93
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386379"
+    },
+    "29": {
+      "name": "turkey breast",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.29,
+        "carbs_g": 0,
+        "fat_g": 0.017,
+        "calories": 1.35
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386387"
+    },
+    "30": {
+      "name": "avocado",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 2,
+        "carbs_g": 9,
+        "fat_g": 15,
+        "calories": 160
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386396"
+    },
+    "31": {
+      "name": "lettuce",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.012,
+        "carbs_g": 0.029,
+        "fat_g": 0.002,
+        "calories": 0.15
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386402"
+    },
+    "32": {
+      "name": "tomato",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.009,
+        "carbs_g": 0.039,
+        "fat_g": 0.001,
+        "calories": 0.18
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386409"
+    },
+    "33": {
+      "name": "mustard",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.066,
+        "carbs_g": 0.058,
+        "fat_g": 0.036,
+        "calories": 0.66
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386412"
+    },
+    "34": {
+      "name": "salmon fillet",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.204,
+        "carbs_g": 0,
+        "fat_g": 0.134,
+        "calories": 2.08
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386420"
+    },
+    "35": {
+      "name": "sweet potato",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.016,
+        "carbs_g": 0.203,
+        "fat_g": 0.001,
+        "calories": 0.86
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386423"
+    },
+    "36": {
+      "name": "broccoli",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.03,
+        "carbs_g": 0.065,
+        "fat_g": 0.004,
+        "calories": 0.35
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386426"
+    },
+    "37": {
+      "name": "lemon",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 0.4,
+        "carbs_g": 14,
+        "fat_g": 0.3,
+        "calories": 29
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386431"
+    },
+    "38": {
+      "name": "beef sirloin",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.26,
+        "carbs_g": 0,
+        "fat_g": 0.115,
+        "calories": 2.07
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386434"
+    },
+    "39": {
+      "name": "brown rice",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.075,
+        "carbs_g": 0.76,
+        "fat_g": 0.03,
+        "calories": 3.5
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386440"
+    },
+    "40": {
+      "name": "bell pepper",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.01,
+        "carbs_g": 0.06,
+        "fat_g": 0.003,
+        "calories": 0.26
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386443"
+    },
+    "41": {
+      "name": "soy sauce",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0.105,
+        "carbs_g": 0.056,
+        "fat_g": 0,
+        "calories": 0.56
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386446"
+    },
+    "42": {
+      "name": "sesame oil",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0,
+        "carbs_g": 0,
+        "fat_g": 1,
+        "calories": 8.84
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386449"
+    },
+    "43": {
+      "name": "basmati rice",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.067,
+        "carbs_g": 0.789,
+        "fat_g": 0.013,
+        "calories": 3.5
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386452"
+    },
+    "44": {
+      "name": "canned tomatoes",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.01,
+        "carbs_g": 0.039,
+        "fat_g": 0.001,
+        "calories": 0.18
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386454"
+    },
+    "45": {
+      "name": "coconut milk",
+      "unit": "ml",
+      "macros_per_unit": {
+        "protein_g": 0.021,
+        "carbs_g": 0.023,
+        "fat_g": 0.199,
+        "calories": 1.98
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386457"
+    },
+    "46": {
+      "name": "tikka masala paste",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.02,
+        "carbs_g": 0.1,
+        "fat_g": 0.05,
+        "calories": 1.5
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386460"
+    },
+    "47": {
+      "name": "sea bass fillet",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.2,
+        "carbs_g": 0,
+        "fat_g": 0.1,
+        "calories": 1.8
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386463"
+    },
+    "48": {
+      "name": "courgette",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.012,
+        "carbs_g": 0.027,
+        "fat_g": 0.002,
+        "calories": 0.17
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386466"
+    },
+    "49": {
+      "name": "aubergine",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.01,
+        "carbs_g": 0.059,
+        "fat_g": 0.002,
+        "calories": 0.25
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386468"
+    },
+    "50": {
+      "name": "rice cakes",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 0.08,
+        "carbs_g": 0.78,
+        "fat_g": 0.02,
+        "calories": 3.8
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386471"
+    },
+    "51": {
+      "name": "almond butter",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.214,
+        "carbs_g": 0.188,
+        "fat_g": 0.542,
+        "calories": 6.14
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386474"
+    },
+    "52": {
+      "name": "cottage cheese",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.11,
+        "carbs_g": 0.034,
+        "fat_g": 0.043,
+        "calories": 0.98
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386477"
+    },
+    "53": {
+      "name": "walnuts",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.152,
+        "carbs_g": 0.135,
+        "fat_g": 0.652,
+        "calories": 6.54
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386480"
+    },
+    "54": {
+      "name": "whey protein powder",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.8,
+        "carbs_g": 0.07,
+        "fat_g": 0.01,
+        "calories": 3.5
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386483"
+    },
+    "55": {
+      "name": "edamame",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.111,
+        "carbs_g": 0.099,
+        "fat_g": 0.052,
+        "calories": 1.21
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386486"
+    },
+    "56": {
+      "name": "plain flour",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.103,
+        "carbs_g": 0.763,
+        "fat_g": 0.01,
+        "calories": 3.64
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386489"
+    },
+    "57": {
+      "name": "apple",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 0.5,
+        "carbs_g": 25,
+        "fat_g": 0.3,
+        "calories": 95
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386492"
+    },
+    "58": {
+      "name": "sugar",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0,
+        "carbs_g": 1,
+        "fat_g": 0,
+        "calories": 4
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386495"
+    },
+    "59": {
+      "name": "cinnamon",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.04,
+        "carbs_g": 0.806,
+        "fat_g": 0.012,
+        "calories": 2.47
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386497"
+    },
+    "60": {
+      "name": "strawberries",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.0067,
+        "carbs_g": 0.077,
+        "fat_g": 0.003,
+        "calories": 0.32
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386500"
+    },
+    "61": {
+      "name": "melon",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.008,
+        "carbs_g": 0.078,
+        "fat_g": 0.002,
+        "calories": 0.34
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386503"
+    },
+    "62": {
+      "name": "kiwi",
+      "unit": "unit",
+      "macros_per_unit": {
+        "protein_g": 1.1,
+        "carbs_g": 15,
+        "fat_g": 0.5,
+        "calories": 61
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386509"
+    },
+    "63": {
+      "name": "mint leaves",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.033,
+        "carbs_g": 0.085,
+        "fat_g": 0.003,
+        "calories": 0.44
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386514"
+    },
+    "64": {
+      "name": "dark chocolate",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.07,
+        "carbs_g": 0.6,
+        "fat_g": 0.43,
+        "calories": 5.46
+      },
+      "category": "vegan",
+      "created_at": "2026-10-31T12:07:38.386517"
+    },
+    "65": {
+      "name": "plain yogurt",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.05,
+        "carbs_g": 0.074,
+        "fat_g": 0.03,
+        "calories": 0.61
+      },
+      "category": "animal",
+      "created_at": "2026-10-31T12:07:38.386520"
+    },
+    "66": {
+      "name": "honey",
+      "unit": "g",
+      "macros_per_unit": {
+        "protein_g": 0.001,
+        "carbs_g": 0.824,
+        "fat_g": 0,
+        "calories": 3.04
+      },
+      "category": "vegetarian",
+      "created_at": "2026-10-31T12:07:38.386524"
+    }
+  }
+}

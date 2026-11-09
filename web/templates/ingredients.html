@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Ingredients — MealGenerator{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+  <h4 class="mb-0"><i class="bi bi-basket3"></i> Ingredient Library</h4>
+  <a href="/ingredients/add" class="btn btn-sm btn-success">
+    <i class="bi bi-plus-lg"></i> Add Ingredient
+  </a>
+</div>
+
+<!-- Filters -->
+<form method="get" class="row g-2 mb-4">
+  <div class="col-auto">
+    <input type="text" name="query" class="form-control form-control-sm" 
+           placeholder="Search ingredients..." value="{{ filter_query }}">
+  </div>
+  <div class="col-auto">
+    <select name="category" class="form-select form-select-sm">
+      <option value="">All categories</option>
+      {% for cat in all_categories %}
+      <option value="{{ cat }}" {% if filter_category == cat %}selected{% endif %}>{{ cat|title }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-sm btn-outline-secondary">Search</button>
+    <a href="/ingredients" class="btn btn-sm btn-outline-secondary">Reset</a>
+  </div>
+</form>
+
+{% if ingredients %}
+<div class="row g-3">
+  {% for ingredient in ingredients %}
+  <div class="col-12 col-sm-6 col-xl-4">
+    <div class="card h-100 shadow-sm">
+      <div class="card-body pb-1">
+        <div class="d-flex justify-content-between align-items-start">
+          <h6 class="card-title mb-1">{{ ingredient.name|title }}</h6>
+          <span class="badge bg-secondary ms-1 text-nowrap">{{ ingredient.unit }}</span>
+        </div>
+        <div class="small text-muted mb-2">
+          {% if ingredient.category %}
+            <span class="badge bg-info bg-opacity-50">{{ ingredient.category|title }}</span>
+          {% endif %}
+          {% if ingredient.shelf_life_days %}
+            <span class="ms-2">Shelf life: {{ ingredient.shelf_life_days }} days</span>
+          {% endif %}
+        </div>
+        <div class="macro-pills small">
+          <span class="badge bg-danger bg-opacity-75">P {{ ingredient.macros_per_unit.protein_g }}g</span>
+          <span class="badge bg-warning text-dark bg-opacity-75">C {{ ingredient.macros_per_unit.carbs_g }}g</span>
+          <span class="badge bg-success bg-opacity-75">F {{ ingredient.macros_per_unit.fat_g }}g</span>
+          <span class="badge bg-dark bg-opacity-75">{{ ingredient.macros_per_unit.calories }} kcal</span>
+        </div>
+        <div class="text-muted small mt-2">
+          <em>per {{ ingredient.unit }}</em>
+        </div>
+      </div>
+      <div class="card-footer d-flex justify-content-between align-items-center py-1">
+        <a href="/ingredients/{{ ingredient.id }}" class="btn btn-sm btn-outline-primary py-0 px-2">
+          <i class="bi bi-eye"></i> View
+        </a>
+        <a href="/ingredients/{{ ingredient.id }}/edit" class="btn btn-sm btn-outline-secondary py-0 px-2">
+          <i class="bi bi-pencil"></i> Edit
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="text-muted">No ingredients match the current filter. <a href="/ingredients/add">Add one?</a></p>
+{% endif %}
+{% endblock %}

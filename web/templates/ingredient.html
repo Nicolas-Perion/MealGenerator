@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}{{ ingredient.name|title }} — MealGenerator{% endblock %}
+
+{% block content %}
+<div style="max-width:720px">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h4 class="mb-0"><i class="bi bi-info-circle"></i> {{ ingredient.name|title }}</h4>
+    <a href="/ingredients/{{ ingredient.id }}/edit" class="btn btn-sm btn-outline-secondary">
+      <i class="bi bi-pencil"></i> Edit
+    </a>
+  </div>
+
+  <!-- Basic info -->
+  <div class="card mb-3 shadow-sm">
+    <div class="card-header fw-semibold">Basic Information</div>
+    <div class="card-body">
+      <dl class="row mb-0">
+        <dt class="col-sm-4">ID</dt>
+        <dd class="col-sm-8">#{{ ingredient.id }}</dd>
+        
+        <dt class="col-sm-4">Category</dt>
+        <dd class="col-sm-8">
+          <span class="badge bg-info bg-opacity-50">{{ ingredient.category|title }}</span>
+        </dd>
+        
+        <dt class="col-sm-4">Reference unit</dt>
+        <dd class="col-sm-8">{{ ingredient.unit }}</dd>
+        
+        <dt class="col-sm-4">Shelf life</dt>
+        <dd class="col-sm-8">{{ ingredient.shelf_life_days }} days</dd>
+        
+        <dt class="col-sm-4">Created</dt>
+        <dd class="col-sm-8">{{ ingredient.created_at if ingredient.created_at else 'Unknown' }}</dd>
+      </dl>
+    </div>
+  </div>
+
+  <!-- Macros -->
+  <div class="card mb-3 shadow-sm">
+    <div class="card-header fw-semibold">
+      <i class="bi bi-bar-chart-line"></i> Macronutrients (per {{ ingredient.unit }})
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-danger bg-opacity-75" style="font-size: 1.2em; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">P</span>
+            <div>
+              <div class="fw-semibold">{{ ingredient.macros_per_unit.protein_g }}g</div>
+              <div class="small text-muted">Protein</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-warning text-dark bg-opacity-75" style="font-size: 1.2em; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">C</span>
+            <div>
+              <div class="fw-semibold">{{ ingredient.macros_per_unit.carbs_g }}g</div>
+              <div class="small text-muted">Carbs</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-success bg-opacity-75" style="font-size: 1.2em; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">F</span>
+            <div>
+              <div class="fw-semibold">{{ ingredient.macros_per_unit.fat_g }}g</div>
+              <div class="small text-muted">Fat</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="d-flex align-items-center gap-2">
+            <span class="badge bg-dark bg-opacity-75" style="font-size: 1.2em; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">C</span>
+            <div>
+              <div class="fw-semibold">{{ ingredient.macros_per_unit.calories }} kcal</div>
+              <div class="small text-muted">Calories</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <a href="/ingredients" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Back to all ingredients
+    </a>
+  </div>
+</div>
+{% endblock %}

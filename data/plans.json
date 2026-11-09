@@ -1,0 +1,941 @@
+{
+    "plans": {
+        "1": {
+            "generated_at": "2026-09-16T16:24:46.490313",
+            "days": [
+                {
+                    "day": 1,
+                    "date": "2026-09-16",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 2,
+                    "date": "2026-09-17",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            20
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            5,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 3,
+                    "date": "2026-09-18",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            8,
+                            17
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 4,
+                    "date": "2026-09-19",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            5,
+                            20
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 5,
+                    "date": "2026-09-20",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            5,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 6,
+                    "date": "2026-09-21",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            20
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            11,
+                            17
+                        ]
+                    }
+                },
+                {
+                    "day": 7,
+                    "date": "2026-09-22",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            11,
+                            17
+                        ]
+                    }
+                }
+            ],
+            "daily_targets": {
+                "protein_g": 160,
+                "carbs_g": 220,
+                "fat_g": 70,
+                "calories": 2200
+            },
+            "slot_targets": {
+                "breakfast": {
+                    "protein_g": 40,
+                    "carbs_g": 66,
+                    "fat_g": 17.5,
+                    "calories": 550
+                },
+                "lunch": {
+                    "protein_g": 48,
+                    "carbs_g": 66,
+                    "fat_g": 21,
+                    "calories": 660
+                },
+                "pre_snack": {
+                    "protein_g": 24,
+                    "carbs_g": 44,
+                    "fat_g": 10.5,
+                    "calories": 330
+                },
+                "dinner": {
+                    "protein_g": 48,
+                    "carbs_g": 44,
+                    "fat_g": 21,
+                    "calories": 660
+                }
+            },
+            "hemisphere": "north",
+            "planner_mode": "auto",
+            "warnings": []
+        },
+        "2": {
+            "generated_at": "2026-11-09T21:42:06.547456",
+            "days": [
+                {
+                    "day": 1,
+                    "date": "2026-11-09",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 2,
+                    "date": "2026-11-10",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 3,
+                    "date": "2026-11-11",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            5,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 4,
+                    "date": "2026-11-12",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            7,
+                            20
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 5,
+                    "date": "2026-11-13",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            19
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            5,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 6,
+                    "date": "2026-11-14",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            5,
+                            20
+                        ],
+                        "pre_snack": [
+                            16
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 7,
+                    "date": "2026-11-15",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                }
+            ],
+            "daily_targets": {
+                "protein_g": 120.0,
+                "carbs_g": 220.0,
+                "fat_g": 70.0,
+                "calories": 2200.0
+            },
+            "slot_targets": {
+                "breakfast": {
+                    "protein_g": 30.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 17.5,
+                    "calories": 550.0
+                },
+                "lunch": {
+                    "protein_g": 36.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                },
+                "pre_snack": {
+                    "protein_g": 18.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 10.5,
+                    "calories": 330.0
+                },
+                "dinner": {
+                    "protein_g": 36.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                }
+            },
+            "hemisphere": "north",
+            "planner_mode": "auto",
+            "warnings": []
+        },
+        "3": {
+            "generated_at": "2026-11-09T21:42:11.003948",
+            "days": [
+                {
+                    "day": 1,
+                    "date": "2026-11-09",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            7,
+                            19
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 2,
+                    "date": "2026-11-10",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 3,
+                    "date": "2026-11-11",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            17
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            5,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 4,
+                    "date": "2026-11-12",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 5,
+                    "date": "2026-11-13",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            20
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 6,
+                    "date": "2026-11-14",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 7,
+                    "date": "2026-11-15",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            16
+                        ],
+                        "dinner": [
+                            11,
+                            17
+                        ]
+                    }
+                }
+            ],
+            "daily_targets": {
+                "protein_g": 120.0,
+                "carbs_g": 220.0,
+                "fat_g": 70.0,
+                "calories": 2200.0
+            },
+            "slot_targets": {
+                "breakfast": {
+                    "protein_g": 30.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 17.5,
+                    "calories": 550.0
+                },
+                "lunch": {
+                    "protein_g": 36.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                },
+                "pre_snack": {
+                    "protein_g": 18.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 10.5,
+                    "calories": 330.0
+                },
+                "dinner": {
+                    "protein_g": 36.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                }
+            },
+            "hemisphere": "north",
+            "planner_mode": "auto",
+            "warnings": []
+        },
+        "4": {
+            "generated_at": "2026-11-09T21:42:12.145271",
+            "days": [
+                {
+                    "day": 1,
+                    "date": "2026-11-09",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            16
+                        ],
+                        "dinner": [
+                            5,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 2,
+                    "date": "2026-11-10",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 3,
+                    "date": "2026-11-11",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            7,
+                            20
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 4,
+                    "date": "2026-11-12",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 5,
+                    "date": "2026-11-13",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 6,
+                    "date": "2026-11-14",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 7,
+                    "date": "2026-11-15",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            8,
+                            17
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            5,
+                            17
+                        ]
+                    }
+                }
+            ],
+            "daily_targets": {
+                "protein_g": 120.0,
+                "carbs_g": 220.0,
+                "fat_g": 70.0,
+                "calories": 2200.0
+            },
+            "slot_targets": {
+                "breakfast": {
+                    "protein_g": 30.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 17.5,
+                    "calories": 550.0
+                },
+                "lunch": {
+                    "protein_g": 36.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                },
+                "pre_snack": {
+                    "protein_g": 18.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 10.5,
+                    "calories": 330.0
+                },
+                "dinner": {
+                    "protein_g": 36.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                }
+            },
+            "hemisphere": "north",
+            "planner_mode": "auto",
+            "warnings": []
+        },
+        "5": {
+            "generated_at": "2026-11-09T21:42:13.061839",
+            "days": [
+                {
+                    "day": 1,
+                    "date": "2026-11-09",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            5,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 2,
+                    "date": "2026-11-10",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            8,
+                            17
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 3,
+                    "date": "2026-11-11",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            8,
+                            20
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 4,
+                    "date": "2026-11-12",
+                    "meals": {
+                        "breakfast": [
+                            3,
+                            18
+                        ],
+                        "lunch": [
+                            8,
+                            19
+                        ],
+                        "pre_snack": [
+                            14
+                        ],
+                        "dinner": [
+                            11,
+                            18
+                        ]
+                    }
+                },
+                {
+                    "day": 5,
+                    "date": "2026-11-13",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            19
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                },
+                {
+                    "day": 6,
+                    "date": "2026-11-14",
+                    "meals": {
+                        "breakfast": [
+                            2,
+                            20
+                        ],
+                        "lunch": [
+                            7,
+                            17
+                        ],
+                        "pre_snack": [
+                            13
+                        ],
+                        "dinner": [
+                            10,
+                            20
+                        ]
+                    }
+                },
+                {
+                    "day": 7,
+                    "date": "2026-11-15",
+                    "meals": {
+                        "breakfast": [
+                            1,
+                            20
+                        ],
+                        "lunch": [
+                            5,
+                            19
+                        ],
+                        "pre_snack": [
+                            15
+                        ],
+                        "dinner": [
+                            9,
+                            19
+                        ]
+                    }
+                }
+            ],
+            "daily_targets": {
+                "protein_g": 120.0,
+                "carbs_g": 220.0,
+                "fat_g": 70.0,
+                "calories": 2200.0
+            },
+            "slot_targets": {
+                "breakfast": {
+                    "protein_g": 30.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 17.5,
+                    "calories": 550.0
+                },
+                "lunch": {
+                    "protein_g": 36.0,
+                    "carbs_g": 66.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                },
+                "pre_snack": {
+                    "protein_g": 18.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 10.5,
+                    "calories": 330.0
+                },
+                "dinner": {
+                    "protein_g": 36.0,
+                    "carbs_g": 44.0,
+                    "fat_g": 21.0,
+                    "calories": 660.0
+                }
+            },
+            "hemisphere": "north",
+            "planner_mode": "auto",
+            "warnings": [
+                "Apple Pie: 1 serving(s) may go unused"
+            ]
+        }
+    }
+}

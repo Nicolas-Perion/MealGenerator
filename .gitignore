@@ -1,6 +1,10 @@
 # Agents
 .claude/*
 CLAUDE.md
+.vibe/*
 
 # Cache
 */__pycache__
+
+# Environment
+.venv

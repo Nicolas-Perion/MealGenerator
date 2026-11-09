@@ -1,10 +1,9 @@
 import random
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import datetime, timedelta
 from math import sqrt
-from typing import Optional
 
-from .database import get_all_dishes, get_last_plan, save_plan, get_dish_by_id
+from .database import get_all_dishes, get_dish_by_id, get_last_plan
 from .seasonality import is_dish_seasonal
 
 SLOTS = ["breakfast", "lunch", "pre_snack", "dinner"]
@@ -133,7 +132,7 @@ def _count_future_compatible_slots(
     return count
 
 
-def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
+def generate_plan(config: dict, rng_seed: int | None = None) -> dict:
     if rng_seed is not None:
         random.seed(rng_seed)
 
@@ -164,7 +163,7 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
 
         for slot_idx, slot in enumerate(SLOTS):
             target = slot_targets[slot]
-            forced_addon_id: Optional[int] = None
+            forced_addon_id: int | None = None
 
             # ── STEP A: check batch queue for forced serving ──────────────
             for entry in batch_queue:
@@ -176,8 +175,12 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
                 if not dish or slot not in dish.get("compatible_slots", []):
                     continue
                 future = _count_future_compatible_slots(
-                    entry.dish_id, all_dishes, list(range(day_num, 8)),
-                    slots_grid, slot_idx, day_idx,
+                    entry.dish_id,
+                    all_dishes,
+                    list(range(day_num, 8)),
+                    slots_grid,
+                    slot_idx,
+                    day_idx,
                 )
                 if entry.remaining >= future + 1:
                     # Must use now or lose a serving
@@ -186,12 +189,16 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
                     break
 
             # ── STEP B: select main dish ──────────────────────────────────
-            main: Optional[dict] = None
+            main: dict | None = None
             for relax_recent, relax_season in [
-                (False, False), (True, False), (True, True)
+                (False, False),
+                (True, False),
+                (True, True),
             ]:
                 candidates = _filter_mains(
-                    all_dishes, slot, hemisphere,
+                    all_dishes,
+                    slot,
+                    hemisphere,
                     recently_used_this_week,
                     relax_recent=relax_recent,
                     relax_season=relax_season,
@@ -220,11 +227,13 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
             if main.get("batch_size", 1) > 1:
                 already = any(e.dish_id == main["id"] for e in batch_queue)
                 if not already:
-                    batch_queue.append(_BatchEntry(
-                        dish_id=main["id"],
-                        remaining=main["batch_size"] - 1,
-                        expires_on_day=day_num + main.get("shelf_life_days", 1) - 1,
-                    ))
+                    batch_queue.append(
+                        _BatchEntry(
+                            dish_id=main["id"],
+                            remaining=main["batch_size"] - 1,
+                            expires_on_day=day_num + main.get("shelf_life_days", 1) - 1,
+                        )
+                    )
 
             # ── STEP C: select add-on ─────────────────────────────────────
             remaining_budget = _subtract_macros(target, main)
@@ -234,17 +243,22 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
             elif remaining_budget["calories"] >= MIN_ADDON_CALORIES:
                 # Build active batch set for weight boosting
                 active_batch_ids = {
-                    e.dish_id for e in batch_queue
+                    e.dish_id
+                    for e in batch_queue
                     if e.remaining > 0 and day_num <= e.expires_on_day
                 }
                 addon_candidates = _filter_addons(
-                    all_dishes, slot, hemisphere,
+                    all_dishes,
+                    slot,
+                    hemisphere,
                     exclude_ids=set(selected_ids),
                     max_calories=remaining_budget["calories"],
                 )
                 if not addon_candidates:
                     addon_candidates = _filter_addons(
-                        all_dishes, slot, hemisphere,
+                        all_dishes,
+                        slot,
+                        hemisphere,
                         exclude_ids=set(selected_ids),
                         max_calories=remaining_budget["calories"],
                         relax_season=True,
@@ -268,19 +282,25 @@ def generate_plan(config: dict, rng_seed: Optional[int] = None) -> dict:
                         if addon.get("batch_size", 1) > 1:
                             already = any(e.dish_id == addon["id"] for e in batch_queue)
                             if not already:
-                                batch_queue.append(_BatchEntry(
-                                    dish_id=addon["id"],
-                                    remaining=addon["batch_size"] - 1,
-                                    expires_on_day=day_num + addon.get("shelf_life_days", 1) - 1,
-                                ))
+                                batch_queue.append(
+                                    _BatchEntry(
+                                        dish_id=addon["id"],
+                                        remaining=addon["batch_size"] - 1,
+                                        expires_on_day=day_num
+                                        + addon.get("shelf_life_days", 1)
+                                        - 1,
+                                    )
+                                )
 
             day_meals[slot] = selected_ids
 
-        days_out.append({
-            "day": day_num,
-            "date": day_date.isoformat(),
-            "meals": day_meals,
-        })
+        days_out.append(
+            {
+                "day": day_num,
+                "date": day_date.isoformat(),
+                "meals": day_meals,
+            }
+        )
 
     # Collect batch warnings
     warnings = []

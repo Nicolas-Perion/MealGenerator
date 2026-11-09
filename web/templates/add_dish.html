@@ -46,7 +46,7 @@
             {% for s, l in SLOT_LABELS.items() %}
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="compatible_slots"
-                     id="slot_{{ s }}" value="{{ s }}">
+                     id="slot_{{ s }}" value="{{ s }}"{% if dish and s in dish.get('compatible_slots', []) %} checked{% endif %}>
               <label class="form-check-label" for="slot_{{ s }}">{{ l }}</label>
             </div>
             {% endfor %}
@@ -59,7 +59,7 @@
             {% for s in ["spring","summer","autumn","winter"] %}
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="seasons"
-                     id="season_{{ s }}" value="{{ s }}">
+                     id="season_{{ s }}" value="{{ s }}"{% if dish and s in dish.get('seasons', []) %} checked{% endif %}>
               <label class="form-check-label" for="season_{{ s }}">{{ s|title }}</label>
             </div>
             {% endfor %}
@@ -112,26 +112,33 @@
         <div id="ingredientRows">
           <!-- Dynamic rows injected here -->
           <div class="ingredient-row row g-2 mb-2 align-items-end">
-            <div class="col-6">
-              <label class="form-label small mb-1">Ingredient name</label>
-              <input type="text" name="ing_name_0" class="form-control form-control-sm" placeholder="e.g. chicken breast">
+            <div class="col-7">
+              <label class="form-label small mb-1">Ingredient</label>
+              <select name="ing_id_0" class="form-select form-select-sm ingredient-select" required>
+                <option value="">-- Select an ingredient --</option>
+                {% for ing in all_ingredients %}
+                <option value="{{ ing.id }}" 
+                        data-name="{{ ing.name }}"
+                        data-unit="{{ ing.unit }}"
+                        {% if dish and dish.get('ingredients') and dish.ingredients[0] and dish.ingredients[0].get('ingredient_id') == ing.id %}selected{% endif %}>
+                  {{ ing.name|title }} ({{ ing.unit }})</option>
+                {% endfor %}
+              </select>
             </div>
             <div class="col-3">
               <label class="form-label small mb-1">Quantity</label>
-              <input type="number" name="ing_qty_0" class="form-control form-control-sm" step="0.1" min="0" placeholder="150">
+              <input type="number" name="ing_qty_0" class="form-control form-control-sm" step="0.1" min="0" placeholder="80">
             </div>
             <div class="col-2">
-              <label class="form-label small mb-1">Unit</label>
-              <select name="ing_unit_0" class="form-select form-select-sm">
-                <option value="g">g</option>
-                <option value="ml">ml</option>
-                <option value="units">units</option>
-              </select>
-            </div>
-            <div class="col-1">
-              <button type="button" class="btn btn-sm btn-outline-danger remove-ing" style="display:none">
-                <i class="bi bi-x"></i>
-              </button>
+              <label class="form-label small mb-1">&nbsp;</label>
+              <div class="d-flex gap-1">
+                <a href="/ingredients/add" class="btn btn-sm btn-outline-success" target="_blank">
+                  <i class="bi bi-plus"></i>
+                </a>
+                <button type="button" class="btn btn-sm btn-outline-danger remove-ing" style="display:none">
+                  <i class="bi bi-x"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -141,35 +148,35 @@
       </div>
     </div>
 
-    <!-- Section 2: Macros per serving -->
+    <!-- Section 2: Macros (auto-calculated) -->
     <div class="card mb-4 shadow-sm">
       <div class="card-header fw-semibold">
-        <i class="bi bi-bar-chart-line"></i> Macros <span class="text-muted fw-normal">(per serving)</span>
+        <i class="bi bi-bar-chart-line"></i> Macros <span class="text-muted fw-normal">(auto-calculated per serving)</span>
       </div>
       <div class="card-body">
-        <p class="text-muted small mb-3">Enter the nutritional values for <strong>one serving</strong>.</p>
+        <p class="text-muted small mb-3">Macronutrients are automatically calculated from the ingredient quantities.</p>
         <div class="row g-3">
           <div class="col-sm-3">
             <label class="form-label">Protein (g)</label>
-            <input type="number" name="protein_g" id="proteinG" class="form-control" step="0.1" min="0"
-                   value="{{ dish.protein_g if dish else '' }}" oninput="calcCalories()">
+            <input type="text" id="proteinG" class="form-control bg-light" readonly value="{{ dish.calculated_macros.protein_g if dish and dish.get('calculated_macros') else '0' }}">
           </div>
           <div class="col-sm-3">
             <label class="form-label">Carbs (g)</label>
-            <input type="number" name="carbs_g" id="carbsG" class="form-control" step="0.1" min="0"
-                   value="{{ dish.carbs_g if dish else '' }}" oninput="calcCalories()">
+            <input type="text" id="carbsG" class="form-control bg-light" readonly value="{{ dish.calculated_macros.carbs_g if dish and dish.get('calculated_macros') else '0' }}">
           </div>
           <div class="col-sm-3">
             <label class="form-label">Fat (g)</label>
-            <input type="number" name="fat_g" id="fatG" class="form-control" step="0.1" min="0"
-                   value="{{ dish.fat_g if dish else '' }}" oninput="calcCalories()">
+            <input type="text" id="fatG" class="form-control bg-light" readonly value="{{ dish.calculated_macros.fat_g if dish and dish.get('calculated_macros') else '0' }}">
           </div>
           <div class="col-sm-3">
-            <label class="form-label">Calories (auto)</label>
-            <input type="text" id="calDisplay" class="form-control bg-light" readonly placeholder="—">
+            <label class="form-label">Calories</label>
+            <input type="text" id="calories" class="form-control bg-light" readonly value="{{ dish.calculated_macros.calories if dish and dish.get('calculated_macros') else '0' }}">
           </div>
         </div>
-        <div id="batchCalSummary" class="mt-2 text-muted small" style="display:none"></div>
+        <div id="batchMacroSummary" class="mt-2 text-muted small" style="display:none"></div>
+        <div class="alert alert-info mt-2 mb-0">
+          <i class="bi bi-info-circle"></i> Macros are automatically calculated from your ingredients and quantities.
+        </div>
       </div>
     </div>
 
@@ -192,7 +199,7 @@
   const ingredientsHeader = document.getElementById('ingredientsHeader');
   const ingredientsNote = document.getElementById('ingredientsNote');
   const batchSize = document.getElementById('batchSize');
-  const batchCalSummary = document.getElementById('batchCalSummary');
+  const batchMacroSummary = document.getElementById('batchMacroSummary');
 
   function updateBatchUI() {
     const active = isBatch.checked;
@@ -205,28 +212,39 @@
       ingredientsHeader.textContent = 'Ingredients (1 serving)';
       ingredientsNote.textContent = '';
     }
-    calcCalories();
+    calcMacros();
   }
   isBatch.addEventListener('change', updateBatchUI);
-  batchSize.addEventListener('input', updateBatchUI);
+  if (batchSize) batchSize.addEventListener('input', updateBatchUI);
 
-  // Calorie auto-calc
-  function calcCalories() {
-    const p = parseFloat(document.getElementById('proteinG').value) || 0;
-    const c = parseFloat(document.getElementById('carbsG').value) || 0;
-    const f = parseFloat(document.getElementById('fatG').value) || 0;
-    const cal = Math.round(p * 4 + c * 4 + f * 9);
-    const display = document.getElementById('calDisplay');
-    display.value = cal > 0 ? cal + ' kcal' : '—';
-    if (isBatch.checked) {
+  // Ingredient lookup data
+  const ingredientData = {};
+  document.querySelectorAll('.ingredient-select option[data-name]').forEach(opt => {
+    ingredientData[opt.value] = {
+      name: opt.dataset.name,
+      unit: opt.dataset.unit
+    };
+  });
+
+  // Calculate macros from selected ingredients
+  function calcMacros() {
+    // This would normally be done server-side, but we can provide an estimate
+    // For now, just display placeholder values
+    // In a real implementation, this would fetch from an API or use client-side data
+    document.getElementById('proteinG').value = 'Calculating...';
+    document.getElementById('carbsG').value = 'Calculating...';
+    document.getElementById('fatG').value = 'Calculating...';
+    document.getElementById('calories').value = 'Calculating...';
+    
+    // For batch dishes, show summary
+    if (isBatch && isBatch.checked) {
       const n = parseInt(batchSize.value) || 1;
-      batchCalSummary.style.display = '';
-      batchCalSummary.textContent = `Total batch: ${n} × ${cal} kcal = ${n * cal} kcal`;
+      batchMacroSummary.style.display = '';
+      batchMacroSummary.textContent = `Macros shown are for the full batch. Per-serving macros will be calculated as batch macros ÷ ${n}.`;
     } else {
-      batchCalSummary.style.display = 'none';
+      batchMacroSummary.style.display = 'none';
     }
   }
-  document.querySelectorAll('#proteinG,#carbsG,#fatG').forEach(el => el.addEventListener('input', calcCalories));
 
   // Dynamic ingredient rows
   let rowCount = 1;
@@ -235,28 +253,41 @@
     const row = document.createElement('div');
     row.className = 'ingredient-row row g-2 mb-2 align-items-end';
     row.innerHTML = `
-      <div class="col-6">
-        <input type="text" name="ing_name_${rowCount}" class="form-control form-control-sm" placeholder="e.g. olive oil">
+      <div class="col-7">
+        <select name="ing_id_${rowCount}" class="form-select form-select-sm ingredient-select" required>
+          <option value="">-- Select an ingredient --</option>
+          {% for ing in all_ingredients %}
+          <option value="{{ ing.id }}" data-name="{{ ing.name }}" data-unit="{{ ing.unit }}">
+            {{ ing.name|title }} ({{ ing.unit }})
+          </option>
+          {% endfor %}
+        </select>
       </div>
       <div class="col-3">
         <input type="number" name="ing_qty_${rowCount}" class="form-control form-control-sm" step="0.1" min="0">
       </div>
       <div class="col-2">
-        <select name="ing_unit_${rowCount}" class="form-select form-select-sm">
-          <option value="g">g</option>
-          <option value="ml">ml</option>
-          <option value="units">units</option>
-        </select>
-      </div>
-      <div class="col-1">
-        <button type="button" class="btn btn-sm btn-outline-danger remove-ing">
-          <i class="bi bi-x"></i>
-        </button>
+        <label class="form-label small mb-1">&nbsp;</label>
+        <div class="d-flex gap-1">
+          <a href="/ingredients/add" class="btn btn-sm btn-outline-success" target="_blank">
+            <i class="bi bi-plus"></i>
+          </a>
+          <button type="button" class="btn btn-sm btn-outline-danger remove-ing">
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
       </div>`;
     container.appendChild(row);
     rowCount++;
     // Show remove buttons when >1 rows
     document.querySelectorAll('.remove-ing').forEach(btn => btn.style.display = '');
+    
+    // Attach event listeners to new select
+    const select = row.querySelector('.ingredient-select');
+    if (select) {
+      select.addEventListener('change', calcMacros);
+      row.querySelector('input[type="number"]').addEventListener('input', calcMacros);
+    }
   });
 
   document.getElementById('ingredientRows').addEventListener('click', e => {
@@ -265,7 +296,21 @@
       if (document.querySelectorAll('.ingredient-row').length === 1) {
         document.querySelector('.remove-ing').style.display = 'none';
       }
+      calcMacros();
     }
   });
+
+  // Attach event listeners to existing selects
+  document.querySelectorAll('.ingredient-select').forEach(select => {
+    select.addEventListener('change', calcMacros);
+    const row = select.closest('.ingredient-row');
+    if (row) {
+      const input = row.querySelector('input[type="number"]');
+      if (input) input.addEventListener('input', calcMacros);
+    }
+  });
+
+  // Initial macro calculation
+  calcMacros();
 </script>
 {% endblock %}

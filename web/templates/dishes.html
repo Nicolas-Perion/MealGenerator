@@ -86,12 +86,37 @@
       </div>
       <div class="card-footer d-flex justify-content-between align-items-center py-1">
         <small class="text-muted"><i class="bi bi-clock"></i> {{ dish.prep_minutes }} min</small>
-        <form method="post" action="/dishes/{{ dish.id }}/delete"
-              onsubmit="return confirm('Delete {{ dish.name }}?')">
-          <button type="submit" class="btn btn-sm btn-outline-danger py-0 px-2">
-            <i class="bi bi-trash3"></i>
-          </button>
-        </form>
+        <div class="d-flex gap-1">
+          <a href="/dishes/{{ dish.id }}/edit" class="btn btn-sm btn-outline-secondary py-0 px-2">
+            <i class="bi bi-pencil"></i>
+          </a>
+          <form method="post" action="/dishes/{{ dish.id }}/delete"
+                onsubmit="return confirm('Delete {{ dish.name }}?')">
+            <button type="submit" class="btn btn-sm btn-outline-danger py-0 px-2">
+              <i class="bi bi-trash3"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="mt-2">
+        <details class="small">
+          <summary class="text-muted cursor-pointer">Ingredients</summary>
+          <div class="mt-1 ps-3">
+            {% if dish.resolved_ingredients %}
+              {% for ing in dish.resolved_ingredients %}
+              <div class="d-flex justify-content-between">
+                <span>
+                  <a href="/ingredients/{{ ing.ingredient_id }}" class="text-decoration-none">{{ ing.name|title }}</a>
+                  <span class="text-muted">({{ ing.unit }})</span>
+                </span>
+                <span>{{ ing.quantity }}{% if ing.unit != 'unit' %} {{ ing.unit }}{% endif %}</span>
+              </div>
+              {% endfor %}
+            {% else %}
+              <span class="text-muted">No ingredients</span>
+            {% endif %}
+          </div>
+        </details>
       </div>
     </div>
   </div>
